@@ -1,0 +1,102 @@
+\newcommand{\constraint}[1]{
+\llbracket #1 \rrbracket
+  }
+
+\newcommand{\assignconstraint}[3]{
+#1 ~ \downarrow ~ #2 ~ \cup ~ #3
+  }
+
+
+
+
+\begin{frame}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\} &\phantom{hahahahhh}\\
+  \constraint{param =} & = & \{\} &\\
+  \constraint{command =} & = & \{\}&\\
+  \constraint{subprocess.call} & = & \{\}&\\
+  \constraint{with} & = & \{\}&\\
+  \constraint{menu =} & = & \{\}&\\
+  \constraint{ret\_f.read =} & = & \{\}&\\
+  \constraint{exit} & = & \{\}&\\
+\end{array}
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
+  \constraint{param =} & = & \{\} & \rightarrow &\{param =\}\\
+  \constraint{command =} & = & \{\}& \rightarrow &\{command =\}\\
+  \constraint{subprocess.call} & = & \{\}& \rightarrow &\{\}\\
+  \constraint{with} & = & \{\}&\rightarrow & \{\}\\
+  \constraint{menu =} & = & \{\}& \rightarrow & \{menu =\}\\
+  \constraint{ret\_f.read =} & = & \{\}&\rightarrow & \{ret\_f.read =\}\\
+  \constraint{exit} & = & \{\}&\rightarrow & \{\}\\
+\end{array}
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = &  \{\} & \phantom{\rightarrow} & \phantom{hahahaha}\\
+  \constraint{param =} & = & \{param =\}&  & \\ 
+  \constraint{command =} & = &\{command =\}&  & \\
+  \constraint{subprocess.call} & = & \{\}&  & \\
+  \constraint{with} & = & \{\}&  & \\
+  \constraint{menu =} & = &  \{menu =\}&  & \\
+  \constraint{ret\_f.read =} & = & \{ret\_f.read\}&  & \\
+  \constraint{exit} & = & \{\}&  & \\
+\end{array}
+\]
+\end{frame}
+
+\begin{frame}
+  \[
+\begin{array}{lclcl}
+  \constraint{entry} & = &  \{\} & \rightarrow & \{\}\\
+  \constraint{param =} & = & \{param =\}& \rightarrow & \{param =\}\\ 
+  \constraint{command =} & = &\{command =\}& \rightarrow & \{command =, param =\}\\
+  \constraint{subprocess.call} & = & \{\}& \rightarrow & \{command =\}\\
+  \constraint{with} & = & \{\}& \rightarrow & \{\}\\
+  \constraint{menu =} & = &  \{menu = \}& \rightarrow & \{menu =\} \\
+  \constraint{ret\_f.read =} & = & \{ret\_f.read\}& \rightarrow & \{ret\_f.read=, menu =\}\\
+  \constraint{exit} & = & \{\}& \rightarrow & \{ret\_f.read=\}\\
+\end{array}
+\]
+\end{frame}
+
+
+\begin{frame}
+  \[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\}& \phantom{\rightarrow} & \phantom{\{command =, param =\}} \\
+  \constraint{param =} & = & \{param =\}& \\ 
+  \constraint{command =} & = & \{command =, param =\}& \\
+  \constraint{subprocess.call} & = & \{command =\}& \\
+  \constraint{with} & = & \{\}& \\
+  \constraint{menu =} & = & \{menu =\} & \\
+  \constraint{ret\_f.read =} & = & \{ret\_f.read=, menu =\}& \\
+  \constraint{exit} & = & \{ret\_f.read=\}& \\
+\end{array}
+\]
+\end{frame}
+
+
+\begin{frame}
+  \[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\}& \rightarrow & \{command =, param =\} \\
+  \constraint{param =} & = & \{param =\}& \rightarrow & \{param=\}\\ 
+  \constraint{command =} & = & \{command =, param =\}& \rightarrow & \{command=, param=\}\\
+  \constraint{subprocess.call} & = & \{command =\}& \rightarrow & \{command=, param=\}\\
+  \constraint{with} & = & \{\}& \rightarrow & \{command=\}\\
+  \constraint{menu =} & = & \{menu =\} & \rightarrow & \{menu=\}\\
+  \constraint{ret\_f.read =} & = & \{ret\_f.read, menu =\}& \rightarrow & \{ret_f.read=, menu=\\
+  \constraint{exit} & = & \{ret\_f.read\}& \rightarrow & \{ret_f.read=, menu=\}\\
+\end{array}
+\]
+\end{frame}

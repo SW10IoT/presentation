@@ -18,6 +18,34 @@
 %\setbeamercolor{normal text}{fg=black,bg=gray!10}
 % ... and you can of course change a lot more - see the beamer user manual.
 
+% 
+\usepackage{stmaryrd}
+
+\usepackage{listings}
+% default style
+\lstdefinestyle{default}{
+  numbers=left,
+  frame=single,
+  captionpos=b,
+  backgroundcolor=\color{cyan!10},
+  showstringspaces=false,
+  breaklines=true
+}
+% python style
+\lstdefinestyle{python}{
+  style=default,
+  language=Python,
+  basicstyle=\small\tt,
+  keywordstyle=\color{blue},
+  commentstyle=\color[rgb]{0.13,0.54,0.13},
+  backgroundcolor=\color{cyan!10},
+  morekeywords={
+    True,
+    False
+  },
+  deletendkeywords={filter, all, file, format}
+}
+
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
@@ -93,7 +121,9 @@
 
 % CONTENT
 \input{slides/intro.tex}
-
+\input{slides/ast.tex}
+\input{slides/cfg.tex}
+\input{slides/fixed_point.tex}
 % the final page
 {\aauwavesbg
 \begin{frame}[plain,noframenumbering]

@@ -1,0 +1,20 @@
+\begin{frame}[plain]
+  \includegraphics[width=\textwidth]{graphics/AST}
+\end{frame}
+
+\begin{frame}[fragile, plain]
+  \begin{lstlisting}[style=default]
+mod = Module(stmt* body)
+
+stmt = FunctionDef(identifier name, arguments args, stmt* body, expr* decorator_list, expr? returns)
+     | Assign(expr* targets, expr value)
+     | With(withitem* items, stmt* body)
+     | Return(expr? value)
+       
+expr = Call(expr func, expr* args, keyword* keywords)
+     | Attribute(expr value, identifier attr, expr_context ctx)
+     | Num(object n)
+     | Name(identifier id, expr_context ctx)
+     | Str(string s)   
+  \end{lstlisting}
+\end{frame}
