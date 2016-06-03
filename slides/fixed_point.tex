@@ -1,3 +1,37 @@
+\begin{frame}{The Fixed Point Theorem}
+  \begin{columns}[c]
+    \begin{column}{0.8\textwidth}
+      \begin{itemize}
+      \item In a Lattice L
+      \item Every monotone function $f$ has a unique least fixed-point:
+      \end{itemize}
+\[ fix(f) = \bigsqcup_{i \ge 0} f^i(\bot) \]
+
+\begin{itemize}
+\item for which $f(fix(f)) = fix(f)$
+\end{itemize}
+    \end{column}
+
+    \begin{column}{0.2\textwidth}
+      \includegraphics[width=\textwidth]{graphics/fixed-point_walk}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \[
+  \begin{array}{l}
+    \bot \sqcup f(\bot)\\
+    \phantom{}\\
+    f(\bot) \sqcup f^2(\bot)\\
+    \phantom{}
+    \bot \sqcup f(\bot) \sqcup f^2 \sqcup \dots\\
+    \phantom
+    \dots \sqcup f^k(\bot) \sqcup f^k+1(\bot)\\
+  \end{array}
+  \]
+\end{frame}
+
 \begin{frame}{Constraint Rules}{}
   {\color{red} Forward} analysis:
   \[ JOIN(v) = \bigcup_{ w \in pred(v)} \constraint{w} \]
