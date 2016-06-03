@@ -1,0 +1,18 @@
+\begin{frame}[fragile]{Sources and Sinks}
+  Sources and sinks are identified by 'trigger words'
+  \begin{lstlisting}[style=default, escapeinside={(*@}{@*)}]
+sources:
+get(
+form[
+Markup(
+(*@{\color{red}.data}@*)
+
+sinks:
+replace( -> escape
+send_file( -> '..', '..' in
+execute(
+filter(
+subprocess.call(
+\end{lstlisting}
+
+\end{frame}
