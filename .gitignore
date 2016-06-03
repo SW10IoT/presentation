@@ -154,3 +154,4 @@ pythontex-files-*/
 
 # Latexian
 TSWLatexianTemp*
+/clean.sh
