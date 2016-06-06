@@ -126,8 +126,8 @@
   \assignconstraint{image} & = & \{image\} & \rightarrow &\{image\}\\
   \constraint{if} & = & \{\} & \rightarrow &\{image\}\\
   \assignconstraint{ret\_404} & = & \{ret\_404\} & \rightarrow &\{ret\_404\}\\
-  \assignconstraint{ret\_send} & = & \{ret\_send\} & \rightarrow &\{ret\_send, ret\_404\}\\
-  \constraint{exit} & = & \{\} & \rightarrow & \{ret\_send\}\\
+  \assignconstraint{ret\_send} & = & \{ret\_send\} & \rightarrow &\{ret\_send\}\\
+  \constraint{exit} & = & \{\} & \rightarrow & \{ret\_send, ret\_404\}\\
   && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
 \]
@@ -140,8 +140,8 @@
   \assignconstraint{image} & = & \{image\} &&\\
   \constraint{if} & = & \{image\} &&\\
   \assignconstraint{ret\_404} & = & \{ret\_404\} &&\\
-  \assignconstraint{ret\_send} & = & \{ret\_send, ret\_404\} &&\\
-  \constraint{exit} & = & \{ret\_send\} &&\\
+  \assignconstraint{ret\_send} & = & \{ret\_send\} &&\\
+  \constraint{exit} & = & \{ret\_send, ret\_404\} &&\\
   && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
 \]
@@ -154,8 +154,23 @@
   \assignconstraint{image} & = & \{image\} & \rightarrow &\{image\}\\
   \constraint{if} & = & \{image\} & \rightarrow &\{image\}\\
   \assignconstraint{ret\_404} & = & \{ret\_404\} & \rightarrow &\{ret\_404, image\}\\
-  \assignconstraint{ret\_send} & = & \{ret\_send, ret\_404\} & \rightarrow &\{ret\_send, ret\_404\}\\
-  \constraint{exit} & = & \{ret\_send\} & \rightarrow & \{ret\_send, ret\_404\}\\
+  \assignconstraint{ret\_send} & = & \{ret\_send\} & \rightarrow &\{ret\_send, image\}\\
+  \constraint{exit} & = & \{ret\_send, ret\_404\} & \rightarrow & \{ret\_send, ret\_404\}\\
+  && \phantom{\{command, param\}} && \phantom{\{command, param\}}
+\end{array}
+\]
+\end{frame}
+
+
+\begin{frame}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\} &&\\
+  \assignconstraint{image} & = & \{image\} &&\\
+  \constraint{if} & = & \{image\} &&\\
+  \assignconstraint{ret\_404} & = & \{ret\_404, image\} &&\\
+  \assignconstraint{ret\_send} & = & \{ret\_send, image\} &&\\
+  \constraint{exit} & = & \{ret\_send, ret\_404\} &&\\
   && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
 \]
@@ -164,13 +179,41 @@
 \begin{frame}
 \[
 \begin{array}{lclcl}
-  \constraint{entry} & = & \dots & \rightarrow & \{\}\\
-  \assignconstraint{image} & = & \dots & \rightarrow &\{image\}\\
-  \constraint{if} & = & \dots & \rightarrow &\{image\}\\
-  \assignconstraint{ret\_404} & = & \dots & \rightarrow &\{ret\_404, image\}\\
-  \assignconstraint{ret\_send} & = & \dots & \rightarrow &\{ret\_send, ret\_404, image\}\\
-  \constraint{exit} & = & \dots & \rightarrow & \{ret\_send, ret\_404, image\}\\
+  \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
+  \assignconstraint{image} & = & \{image\} & \rightarrow &\{image\}\\
+  \constraint{if} & = & \{image\} & \rightarrow &\{image\}\\
+  \assignconstraint{ret\_404} & = & \{ret\_404\} & \rightarrow &\{ret\_404, image\}\\
+  \assignconstraint{ret\_send} & = & \{ret\_send\} & \rightarrow &\{ret\_send, image\}\\
+  \constraint{exit} & = & \{ret\_send, ret\_404\} & \rightarrow & \{ret\_send, ret\_404, image\}\\
   && \phantom{\{command, param\}} && \phantom{\{command, param\}}
+\end{array}
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\} &&\\
+  \assignconstraint{image} & = & \{image\} &&\\
+  \constraint{if} & = & \{image\} &&\\
+  \assignconstraint{ret\_404} & = & \{ret\_404, image\} &&\\
+  \assignconstraint{ret\_send} & = & \{ret\_send, image\} &&\\
+  \constraint{exit} & = & \{ret\_send, ret\_404, image\} &&\\
+  && \phantom{\{command, param\}} && \phantom{\{command, param\}}
+\end{array}
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
+  \assignconstraint{image} & = & \{image\} & \rightarrow &\{image\}\\
+  \constraint{if} & = & \{image\} & \rightarrow &\{image\}\\
+  \assignconstraint{ret\_404} & = & \{ret\_404\} & \rightarrow &\{ret\_404, image\}\\
+  \assignconstraint{ret\_send} & = & \{ret\_send\} & \rightarrow &\{ret\_send, image\}\\
+  \constraint{exit} & = & \{ret\_send, ret\_404, image\} & \rightarrow & \{ret\_send, ret\_404,\\
+&&&& \phantom{a}image\}
 \end{array}
 \]
 \end{frame}
