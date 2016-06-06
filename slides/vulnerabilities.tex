@@ -23,3 +23,21 @@ subprocess.call(
 \end{lstlisting}
 
 \end{frame}
+
+\begin{frame}{Identifying triggers in CFG}
+  \includegraphics[width=1.05\textwidth]{graphics/cfg_path_traversal_triggers}
+\end{frame}
+
+\begin{frame}{Looking up the nodes}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\} &&\\
+  \assignconstraint{image} & = & \{image\} &&\\
+  \constraint{if} & = & \{image\} &&\\
+  \constraint{ret\_404} & = & \{ret\_404, image\} &&\\
+  \assignconstraint{ret\_send} & = & \{ret\_send, image\} &&\\
+  \constraint{exit} & = & \{ret\_send, ret\_404, image\} &&\\
+  && \phantom{\{command, param\}} && \phantom{\{command, param\}}
+\end{array}
+\]
+\end{frame}
