@@ -8,20 +8,35 @@
 \begin{frame}[fragile]{Sources and Sinks}
   Sources and sinks are identified by 'trigger words'
   \begin{lstlisting}[style=default, escapeinside={(*@}{@*)}]
-sources:
+(*@{\color{blue}sources:}@*)
 get(
 form[
 Markup(
 (*@{\color{red}.data}@*)
 
-sinks:
-replace( -> escape
-send_file( -> '..', '..' in
+
+(*@{\color{blue}sinks:}@*)
+replace( (*@{\color{blue}->}@*) escape
+send_file( (*@{\color{blue}->}@*) '..'(*@{\color{blue},}@*) '..' in
 execute(
 filter(
 subprocess.call(
 \end{lstlisting}
 
+\end{frame}
+
+\begin{frame}{Demo}
+  \centering
+    Demonstration of the other vulnerabilities
+    \includegraphics[width=0.7\textwidth]{graphics/vulnerability}
+\end{frame}
+
+
+\begin{frame}{Demo}
+  \centering
+  Demonstration of PyT \\
+  Finding the vulnerabilities
+    \includegraphics[width=0.7\textwidth]{graphics/pyt_overview.png}
 \end{frame}
 
 \begin{frame}{Identifying triggers in CFG}
