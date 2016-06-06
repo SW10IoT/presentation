@@ -1,3 +1,10 @@
+\begin{frame}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill [white] (current page.south west) rectangle (current page.north east);
+    \node at (current page.center) {\resizebox{!}{\textheight}{ \input{graphics/implementation_overview_vulnerabilities.tikz}}};
+  \end{tikzpicture}
+\end{frame}
+
 \begin{frame}[fragile]{Sources and Sinks}
   Sources and sinks are identified by 'trigger words'
   \begin{lstlisting}[style=default, escapeinside={(*@}{@*)}]

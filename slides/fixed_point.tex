@@ -65,17 +65,52 @@
   \end{align*}
 \end{frame}
 
+\begin{frame}{Lattice}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill [white] (current page.south west) rectangle (current page.north east);
+    \node at (current page.center) {\includegraphics[width=1.1\textwidth]{graphics/path_traversal_lattice}};
+    \end{tikzpicture}
+  
+\end{frame}
+
+
 \begin{frame}
 \[
 \begin{array}{lclcl}
-  \constraint{entry} & = & \{\} &\phantom{hahahahhh}\\
-  \assignconstraint{param} & = & \{\} &\\
-  \assignconstraint{command} & = & \{\}&\\
-  \constraint{subprocess.call} & = & \{\}&\\
-  \constraint{with} & = & \{\}&\\
-  \assignconstraint{menu} & = & \{\}&\\
-  \assignconstraint{ret\_f.read} & = & \{\}&\\
+  \constraint{entry} & = & \{\} & &\\
+  \assignconstraint{image} & = & \{\} &\\
+  \constraint{if} & = & \{\}&\\
+  \assignconstraint{ret\_404} & = & \{\}&\\
+  \assignconstraint{ret\_send} & = & \{\}&\\
   \constraint{exit} & = & \{\}&\\
+  && \phantom{\{command, paramssdd\}} && \phantom{\{command, param\}}
+\end{array}
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
+  \assignconstraint{image} & = & \{\} & \rightarrow &\{image\}\\
+  \constraint{if} & = & \{\} & \rightarrow &\{\}\\
+  \assignconstraint{ret\_404} & = & \{\} & \rightarrow &\{ret\_404\}\\
+  \assignconstraint{ret\_send} & = & \{\} & \rightarrow &\{ret\_send\}\\
+  \constraint{exit} & = & \{\} & \rightarrow & \{\}\\
+  && \phantom{\{command, param\}} && \phantom{\{command, param\}}
+\end{array}
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{lclcl}
+  \constraint{entry} & = & \{\} &&\\
+  \assignconstraint{image} & = & \{image\} &&\\
+  \constraint{if} & = & \{\} &&\\
+  \assignconstraint{ret\_404} & = & \{ret\_404\} &&\\
+  \assignconstraint{ret\_send} & = & \{ret\_send\} &&\\
+  \constraint{exit} & = & \{\} &&\\
   && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
 \]
@@ -85,14 +120,12 @@
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
-  \assignconstraint{param} & = & \{\} & \rightarrow &\{param\}\\
-  \assignconstraint{command} & = & \{\}& \rightarrow &\{command\}\\
-  \constraint{subprocess.call} & = & \{\}& \rightarrow &\{\}\\
-  \constraint{with} & = & \{\}&\rightarrow & \{\}\\
-  \assignconstraint{menu} & = & \{\}& \rightarrow & \{menu\}\\
-  \assignconstraint{ret\_f.read} & = & \{\}&\rightarrow & \{ret\_f.read\}\\
-  \constraint{exit} & = & \{\}&\rightarrow & \{\}\\
-  && && \phantom{\{command, param\}\{command, param\}}
+  \assignconstraint{image} & = & \{image\} & \rightarrow &\{image\}\\
+  \constraint{if} & = & \{\} & \rightarrow &\{image\}\\
+  \assignconstraint{ret\_404} & = & \{ret\_404\} & \rightarrow &\{ret\_404\}\\
+  \assignconstraint{ret\_send} & = & \{ret\_send\} & \rightarrow &\{ret\_send, ret\_404\}\\
+  \constraint{exit} & = & \{\} & \rightarrow & \{ret\_send\}\\
+  && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
 \]
 \end{frame}
@@ -100,97 +133,41 @@
 \begin{frame}
 \[
 \begin{array}{lclcl}
-  \constraint{entry} & = &  \{\} & \phantom{\rightarrow} & \phantom{hahahaha}\\
-  \assignconstraint{param} & = & \{param\}&  & \\ 
-  \assignconstraint{command} & = &\{command\}&  & \\
-  \constraint{subprocess.call} & = & \{\}&  & \\
-  \constraint{with} & = & \{\}&  & \\
-  \assignconstraint{menu} & = &  \{menu\}&  & \\
-  \assignconstraint{ret\_f.read} & = & \{ret\_f.read\}&  & \\
-  \constraint{exit} & = & \{\}&  & \\
-  && && \phantom{\{command, param\} \{command, param\}}
-\end{array}
-\]
-\end{frame}
-
-\begin{frame}
-  \[
-\begin{array}{lclcl}
-  \constraint{entry} & = &  \{\} & \rightarrow & \{\}\\
-  \assignconstraint{param} & = & \{param\}& \rightarrow & \{param\}\\ 
-  \assignconstraint{command} & = &\{command\}& \rightarrow & \{command, param\}\\
-  \constraint{subprocess.call} & = & \{\}& \rightarrow & \{command\}\\
-  \constraint{with} & = & \{\}& \rightarrow & \{\}\\
-  \assignconstraint{menu} & = &  \{menu \}& \rightarrow & \{menu\} \\
-  \assignconstraint{ret\_f.read} & = & \{ret\_f.read\}& \rightarrow & \{ret\_f.read, menu\}\\
-  \constraint{exit} & = & \{\}& \rightarrow & \{ret\_f.read\}\\
-  && && \phantom{\{command, param\}\{command, param\}}
-\end{array}
-\]
-\end{frame}
-
-
-\begin{frame}
-  \[
-\begin{array}{lclcl}
-  \constraint{entry} & = & \{\}& \phantom{\rightarrow} & \phantom{\{command, param\}} \\
-  \assignconstraint{param} & = & \{param\}& \\ 
-  \assignconstraint{command} & = & \{command, param\}& \\
-  \constraint{subprocess.call} & = & \{command\}& \\
-  \constraint{with} & = & \{\}& \\
-  \assignconstraint{menu} & = & \{menu\} & \\
-  \assignconstraint{ret\_f.read} & = & \{ret\_f.read, menu\}& \\
-  \constraint{exit} & = & \{ret\_f.read\}& \\
+  \constraint{entry} & = & \{\} &&\\
+  \assignconstraint{image} & = & \{image\} &&\\
+  \constraint{if} & = & \{image\} &&\\
+  \assignconstraint{ret\_404} & = & \{ret\_404\} &&\\
+  \assignconstraint{ret\_send} & = & \{ret\_send, ret\_404\} &&\\
+  \constraint{exit} & = & \{ret\_send\} &&\\
   && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
 \]
 \end{frame}
 
-
 \begin{frame}
-  \[
+\[
 \begin{array}{lclcl}
-  \constraint{entry} & = & \{\}& \rightarrow & \{\} \\
-  \assignconstraint{param} & = & \{param\}& \rightarrow & \{param\}\\ 
-  \assignconstraint{command} & = & \{command , param \}& \rightarrow & \{command, param\}\\
-  \constraint{subprocess.call} & = & \{command\}& \rightarrow & \{command, param\}\\
-  \constraint{with} & = & \{\}& \rightarrow & \{command\}\\
-  \assignconstraint{menu} & = & \{menu\} & \rightarrow & \{menu\}\\
-  \assignconstraint{ret\_f.read} & = & \{ret\_f.read, menu\}& \rightarrow & \{ret_f.read, menu\}\\
-  \constraint{exit} & = & \{ret\_f.read\}& \rightarrow & \{ret_f.read, menu\}\\
-  && && \phantom{\{command, param\}}
+  \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
+  \assignconstraint{image} & = & \{image\} & \rightarrow &\{image\}\\
+  \constraint{if} & = & \{image\} & \rightarrow &\{image\}\\
+  \assignconstraint{ret\_404} & = & \{ret\_404\} & \rightarrow &\{ret\_404, image\}\\
+  \assignconstraint{ret\_send} & = & \{ret\_send, ret\_404\} & \rightarrow &\{ret\_send, ret\_404\}\\
+  \constraint{exit} & = & \{ret\_send\} & \rightarrow & \{ret\_send, ret\_404\}\\
+  && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
 \]
 \end{frame}
 
 \begin{frame}
-  \[
+\[
 \begin{array}{lclcl}
-  \constraint{entry} & = & \{command, param\} & \phantom{\rightarrow} & \phantom{\{command, param\}}\\
-  \assignconstraint{param} & = & \{param\} \\ 
-  \assignconstraint{command} & = & \{command, param\}\\
-  \constraint{subprocess.call} & = & \{command, param\}\\
-  \constraint{with} & = & \{command\} \\
-  \assignconstraint{menu} & = & \{menu\}\\
-  \assignconstraint{ret\_f.read} & = & \{ret_f.read, menu\}\\
-  \constraint{exit} & = & \{ret_f.read, menu\}\\
-  &&  && \phantom{\{command, param\}}
-\end{array}
-\]
-\end{frame}
-
-\begin{frame}
-  \[
-\begin{array}{lclcl}
-  \constraint{entry} & = & \dots & \rightarrow & {\{\}}\\
-  \assignconstraint{param} & = & \dots & \rightarrow & \{param\} \\ 
-  \assignconstraint{command} & = & \dots & \rightarrow & \{command, param\}\\
-  \constraint{subprocess.call} & = & \dots & \rightarrow & \{command, param\}\\
-  \constraint{with} & = & \dots & \rightarrow & \{command, param\} \\
-  \assignconstraint{menu} & = & \dots & \rightarrow & \{menu, command, param\}\\
-  \assignconstraint{ret\_f.read} & = & \dots & \rightarrow & \{ret_f.read, menu, command, param\}\\
-  \constraint{exit} & = & \dots & \rightarrow & \{ret_f.read, menu, command, param\}\\
-  &&&&
+  \constraint{entry} & = & \dots & \rightarrow & \{\}\\
+  \assignconstraint{image} & = & \dots & \rightarrow &\{image\}\\
+  \constraint{if} & = & \dots & \rightarrow &\{image\}\\
+  \assignconstraint{ret\_404} & = & \dots & \rightarrow &\{ret\_404, image\}\\
+  \assignconstraint{ret\_send} & = & \dots & \rightarrow &\{ret\_send, ret\_404, image\}\\
+  \constraint{exit} & = & \dots & \rightarrow & \{ret\_send, ret\_404, image\}\\
+  && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
 \]
 \end{frame}

@@ -1,6 +1,20 @@
+\begin{frame}{Demo}
+  \centering
+    Demonstration of the path traversal vulnerability
+    \includegraphics[width=0.7\textwidth]{graphics/vulnerability}
+
+\end{frame}
+
 \begin{frame}
   \begin{tikzpicture}[remember picture,overlay]
     \fill [white] (current page.south west) rectangle (current page.north east);
     \node at (current page.center) {\resizebox{!}{\textheight}{ \input{graphics/implementation_overview.tikz}}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill [white] (current page.south west) rectangle (current page.north east);
+    \node at (current page.center) {\resizebox{!}{\textheight}{ \input{graphics/implementation_overview_source.tikz}}};
   \end{tikzpicture}
 \end{frame}

@@ -1,4 +1,11 @@
 \begin{frame}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill [white] (current page.south west) rectangle (current page.north east);
+    \node at (current page.center) {\resizebox{!}{\textheight}{ \input{graphics/implementation_overview_cfg.tikz}}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
   \includegraphics[height=0.8\textheight]{graphics/adaptor_module}
 \end{frame}
 
@@ -18,7 +25,12 @@
   \includegraphics[height=0.75\textheight]{graphics/CFG_path_traversal}
 \end{frame}
 
-
+\begin{frame}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill [white] (current page.south west) rectangle (current page.north east);
+    \node at (current page.center) {\resizebox{!}{\textheight}{ \input{graphics/implementation_overview_adaptor.tikz}}};
+  \end{tikzpicture}
+\end{frame}
 
 \begin{frame}
   \center
