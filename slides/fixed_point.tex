@@ -42,15 +42,14 @@
 
 
 \begin{frame}{Constraint Rules}{}
-  Our f is defined by a number of constraint rules, applied on each CFG node, yielding the function:
+  f is defined by constraint rules, applied on each CFG node:
   \[ F(x_1, \dots, x_n) = (F_1(x_1, \dots, x_n), \dots, F_n(x_1, \dots, x_n)) \]
 
   (CFG udsnit med F\_1, F\_2 omkring nodes)
 \end{frame}
 
 
-\begin{frame}{Constraint Rules}{}
-  {\color{red} Forward} analysis:
+\begin{frame}{Constraint Rules}{Modified reaching definitions}
   \[ JOIN(v) = \bigcup_{ w \in pred(v)} \constraint{w} \]
 
   Non-assignment nodes:
@@ -58,7 +57,7 @@
 \end{frame}
 
 
-\begin{frame}{Constraint Rules}{}
+\begin{frame}{Constraint Rules}{Modified reaching definitions}
     Assignment nodes:
   \begin{align*}
   \constraint{v} = &\text{ if v is a reassignment:}\\
@@ -228,7 +227,6 @@
  Extension example:
   \begin{itemize}
     \item Dead code analysis
-    \item Har vi andre forslag?
   \end{itemize}
   \center
   \includegraphics[width=0.3\textwidth]{graphics/modular}
