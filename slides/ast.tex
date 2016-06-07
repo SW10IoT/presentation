@@ -26,8 +26,26 @@
 \begin{frame}[plain]
   \begin{tikzpicture}[remember picture,overlay]
     \fill [nicegray] (current page.south west) rectangle (current page.north east);
+    \node at (current page.center) {\includegraphics[width=1.1\textwidth]{graphics/ast_function}};
+    \node[align=right, black, fill=white] at (5,-4) {stmt = FunctionDef(identifier name, arguments args,\\ stmt* body, expr* decorator\_list, expr? returns)};
+    \node[align=right, black, fill=white] at (5,-2) {\includegraphics[width=0.7\textwidth]{graphics/ast_code_function}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill [nicegray] (current page.south west) rectangle (current page.north east);
     \node at (current page.center) {\includegraphics[width=1.1\textwidth]{graphics/ast_assign}};
      \node[align=right, black, fill=white] at (5,-4) {stmt = Assign(expr* targets, expr value)};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill [nicegray] (current page.south west) rectangle (current page.north east);
+    \node at (current page.center) {\includegraphics[width=1.1\textwidth]{graphics/ast_assign}};
+     \node[align=right, black, fill=white] at (5,-4) {stmt = Assign(expr* targets, expr value)};
+     \node[align=right, black, fill=white] at (5,1) {\includegraphics[width=0.4\textwidth]{graphics/ast_code_assign}};
   \end{tikzpicture}
 \end{frame}
 
@@ -37,5 +55,14 @@
     \fill [nicegray] (current page.south west) rectangle (current page.north east);
     \node at (current page.center) {\includegraphics[width=1.1\textwidth]{graphics/ast_call}};
      \node[align=right, black, fill=white] at (5,-4) {expr = Call(expr func, expr* args, keyword* keywords)};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill [nicegray] (current page.south west) rectangle (current page.north east);
+    \node at (current page.center) {\includegraphics[width=1.1\textwidth]{graphics/ast_call}};
+    \node[align=right, black, fill=white] at (5,-4) {expr = Call(expr func, expr* args, keyword* keywords)};
+    \node[align=right, black, fill=white] at (5,-2) {\includegraphics[width=0.7\textwidth]{graphics/ast_code_call}};
   \end{tikzpicture}
 \end{frame}
