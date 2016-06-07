@@ -5,10 +5,20 @@
       \item In a Lattice L
       \item Every monotone function $f$ has a unique least fixed-point:
       \end{itemize}
-      \[ fix(f) = \bigsqcup_{i \ge 0} f^i(\bot) \]
-      \begin{itemize}
-      \item where f(fix(f)) =  fix(f)
-      \end{itemize}
+      \[ fix(f) = \bigsqcup_{i \ge 0} f^i(\bot) \]      
+      \noindent
+      \[
+      \begin{array}{l}
+        \only<2>{\bot \sqsubseteq f(\bot) \phantom{\bot \sqsubseteq \dots}\\
+        \phantom{}\\}
+        \only<3->{\bot \sqsubseteq f(\bot) \sqsubseteq f^2(\bot) \sqsubseteq \dots\\
+        \phantom{}\\}
+        \onslide<4->{\dots \sqsubseteq f^k(\bot) =  f^{k+1}(\bot)\\
+        \phantom{}\\}
+        \onslide<5->{f^k(\bot) = fix(f)}
+      \end{array}
+      \]
+
     \end{column}
     
     \begin{column}{0.2\textwidth}
@@ -16,30 +26,6 @@
     \end{column}
   \end{columns}
 \end{frame}
-
-\begin{frame}{The Fixed Point Theorem}
-  \begin{columns}[c]
-    \begin{column}{0.8\textwidth}
-      \noindent
-      \[
-      \begin{array}{l}
-        \only<1>{\bot \sqsubseteq f(\bot) \phantom{\bot \sqsubseteq \dots}\\
-        \phantom{}\\}
-        \only<2->{\bot \sqsubseteq f(\bot) \sqsubseteq f^2(\bot) \sqsubseteq \dots\\
-        \phantom{}\\}
-        \onslide<3->{\dots \sqsubseteq f^k(\bot) =  f^{k+1}(\bot)\\
-        \phantom{}\\}
-        \onslide<4->{f^k(\bot) = fix(f)}
-      \end{array}
-      \]
-    \end{column}
-
-    \begin{column}<0->{0.2\textwidth}
-      \includegraphics[width=\textwidth]{graphics/fixed-point_walk}
-    \end{column}
-  \end{columns}
-\end{frame}
-
 
 \begin{frame}{Constraint Rules}{}
   f is defined by constraint rules, applied on each CFG node:
