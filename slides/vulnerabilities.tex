@@ -51,7 +51,7 @@ subprocess.call(
   \assignconstraint{image} & = & \{image\} &&\\
   \constraint{if} & = & \{image\} &&\\
   \constraint{ret\_404} & = & \{ret\_404, image\} &&\\
-  \assignconstraint{ret\_send} & = & \{ret\_send, image\} &&\\
+  \constraint{\color{blue}ret\_send} & = & \{ret\_send, image\} &&\\
   \constraint{exit} & = & \{ret\_send, ret\_404, image\} &&\\
   && \phantom{\{command, param\}} && \phantom{\{command, param\}}
 \end{array}
