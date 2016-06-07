@@ -44,12 +44,11 @@
 \begin{frame}{Constraint Rules}{}
   f is defined by constraint rules, applied on each CFG node:
   \[ F(x_1, \dots, x_n) = (F_1(x_1, \dots, x_n), \dots, F_n(x_1, \dots, x_n)) \]
-
-  (CFG udsnit med F\_1, F\_2 omkring nodes)
 \end{frame}
 
 
 \begin{frame}{Constraint Rules}{Modified reaching definitions}
+  Auxiliary function:
   \[ JOIN(v) = \bigcup_{ w \in pred(v)} \constraint{w} \]
 
   Non-assignment nodes:
@@ -67,6 +66,102 @@
   \end{align*}
 \end{frame}
 
+\begin{frame}{Constraint Rules}
+  Assignment nodes:
+  \begin{align*}
+  \constraint{v} = &\text{ if v is a reassignment:}\\
+  &\phantom{==}JOIN(v) \cup \{ v \}\\
+  &\text{ else:}\\
+  &\phantom{==}JOIN(v) \downarrow id \cup \{ v \}\\
+  \end{align*}
+  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \[
+  \begin{array}{ll}
+    v = source() &\\
+    v = v + '!' & \phantom{ \{v = source(), v = v + '!'\}}\\ 
+    v = \ 'harmless' & \\
+    sink(v)& \\
+  \end{array}
+  \]
+\end{frame}
+
+\begin{frame}{Constraint Rules}
+  Assignment nodes:
+  \begin{align*}
+  \constraint{v} = &\text{ if v is a reassignment:}\\
+  &\phantom{==}JOIN(v) \cup \{ v \}\\
+  &\text{ else:}\\
+  &\phantom{==}JOIN(v) \downarrow id \cup \{ v \}\\
+  \end{align*}
+    \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \[
+  \begin{array}{ll}
+    v = source() & \{v = source()\}\\
+    v = v + '!' &\phantom{ \{v = source(), v = v + '!'\}}\\
+    v = \ 'harmless' & \\
+    sink(v)& \\
+  \end{array}
+  \]
+\end{frame}
+
+\begin{frame}{Constraint Rules}
+  Assignment nodes:
+  \begin{align*}
+  \constraint{v} = &\text{ if v is a reassignment:}\\
+  &\phantom{==}JOIN(v) \cup \{ v \}\\
+  &\text{ else:}\\
+  &\phantom{==}JOIN(v) \downarrow id \cup \{ v \}\\
+  \end{align*}
+    \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \[
+  \begin{array}{ll}
+    v = source() & \{v = source()\}\\
+    v = v + '!' & \{v = source(), v = v + '!'\}\\
+    v = \ 'harmless' &\\
+    sink(v)& \\
+  \end{array}
+  \]
+\end{frame}
+
+\begin{frame}{Constraint Rules}
+  Assignment nodes:
+  \begin{align*}
+  \constraint{v} = &\text{ if v is a reassignment:}\\
+  &\phantom{==}JOIN(v) \cup \{ v \}\\
+  &\text{ else:}\\
+  &\phantom{==}JOIN(v) \downarrow id \cup \{ v \}\\
+  \end{align*}
+    \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \[
+  \begin{array}{ll}
+    v = source() & \{v = source()\}\\
+    v = v + '!' & \{v = source(), v = v + '!'\}\\
+    v = \ 'harmless' & \{v = \ 'harmless'\}\\
+    sink(v)& \\
+  \end{array}
+  \]
+\end{frame}
+
+\begin{frame}{Constraint Rules}
+  Assignment nodes:
+  \begin{align*}
+  \constraint{v} = &\text{ if v is a reassignment:}\\
+  &\phantom{==}JOIN(v) \cup \{ v \}\\
+  &\text{ else:}\\
+  &\phantom{==}JOIN(v) \downarrow id \cup \{ v \}\\
+  \end{align*}
+    \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \[
+  \begin{array}{ll}
+    v = source() & \{v = source()\}\\
+    v = v + '!' & \{v = source(), v = v + '!'\}\\
+    v = \ 'harmless' & \{v = \ 'harmless'\}\\
+    sink(v)& \{v = \ 'harmless'\}\\
+  \end{array}
+  \]
+\end{frame}
+
+
 \begin{frame}{Lattice}
   \begin{tikzpicture}[remember picture,overlay]
     \fill [white] (current page.south west) rectangle (current page.north east);
@@ -76,7 +171,7 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 1}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} & &\\
@@ -90,7 +185,7 @@
 \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 1}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
@@ -104,7 +199,7 @@
 \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 2}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} &&\\
@@ -118,7 +213,7 @@
 \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 2}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
@@ -132,7 +227,7 @@
 \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 3}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} &&\\
@@ -146,7 +241,7 @@
 \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 3}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
@@ -161,7 +256,7 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 4}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} &&\\
@@ -175,7 +270,7 @@
 \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 4}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
@@ -189,7 +284,7 @@
 \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 5}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} &&\\
@@ -203,7 +298,7 @@
 \]
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Fixed Point Iteration 5}
 \[
 \begin{array}{lclcl}
   \constraint{entry} & = & \{\} & \rightarrow & \{\}\\
